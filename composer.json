@@ -1,28 +1,24 @@
 {
     "name": "ksfraser/ksf_hrm",
-    "description": "KSF Human Resource Management Module",
-    "type": "project",
+    "description": "KSF Human Resource Management Library",
+    "type": "library",
     "license": "GPL-3.0",
     "require": {
         "php": "^8.1",
         "ksfraser/database": "*",
-        "ksfraser/ksf-modules-dao": "*",
-        "slim/slim": "^4.12",
-        "slim/psr7": "^1.6",
-        "nyholm/psr7": "^1.8",
-        "nyholm/psr7-server": "^1.0",
-        "willdurand/negotiation": "^3.1",
-        "ramsey/uuid": "^4.7"
+        "ksfraser/ksf-modules-dao": "*"
     },
     "require-dev": {
-        "mockery/mockery": "^1.6",
-        "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^10.5"
     },
     "autoload": {
         "psr-4": {
-            "Ksf\\HRM\\": "src/",
-            "Ksf\\HRM\\Tests\\": "tests/"
+            "Ksfraser\\HRM\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ksfraser\\HRM\\Tests\\": "tests/"
         }
     },
     "config": {
@@ -32,13 +28,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": [
-        {
-            "type": "path",
-            "url": "../Database"
-        },
-        {
-            "type": "path",
-            "url": "../ksf_ModulesDAO"
-        }
+        {"type": "path", "url": "../Database"},
+        {"type": "path", "url": "../ksf_ModulesDAO"}
     ]
 }

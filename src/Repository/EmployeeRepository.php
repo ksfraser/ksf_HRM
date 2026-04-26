@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Ksf\HRM\Repository;
+namespace Ksfraser\HRM\Repository;
 
-use Ksf\HRM\Entity\Employee;
+use Ksfraser\HRM\Entity\Employee;
 use Ksfraser\Database\DbManager;
 
 class EmployeeRepository

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Ksf\HRM\Tests\Unit\Repository;
+namespace Ksfraser\HRM\Tests\Unit\Repository;
 
 use PHPUnit\Framework\TestCase;
-use Ksf\HRM\Repository\EmployeeRepository;
-use Ksf\HRM\Entity\Employee;
+use Ksfraser\HRM\Repository\EmployeeRepository;
+use Ksfraser\HRM\Entity\Employee;
 
 class EmployeeRepositoryTest extends TestCase
 {

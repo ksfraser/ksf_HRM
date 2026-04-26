@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Ksf\HRM\Service;
+namespace Ksfraser\HRM\Service;
 
-use Ksf\HRM\Entity\EmployeeCompensation;
-use Ksf\HRM\Entity\Benefit;
-use Ksf\HRM\Entity\CompensationConfig;
+use Ksfraser\HRM\Entity\EmployeeCompensation;
+use Ksfraser\HRM\Entity\Benefit;
+use Ksfraser\HRM\Entity\CompensationConfig;
 
 class CompensationService
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ksf\HRM\Entity;
+namespace Ksfraser\HRM\Entity;
 
 class CompensationConfig
 {

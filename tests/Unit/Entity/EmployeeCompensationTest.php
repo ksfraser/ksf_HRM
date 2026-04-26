@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Ksf\HRM\Tests\Unit\Entity;
+namespace Ksfraser\HRM\Tests\Unit\Entity;
 
 use PHPUnit\Framework\TestCase;
-use Ksf\HRM\Entity\EmployeeCompensation;
+use Ksfraser\HRM\Entity\EmployeeCompensation;
 
 class EmployeeCompensationTest extends TestCase
 {
