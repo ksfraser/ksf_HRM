@@ -13,12 +13,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Ksfraser\\HRM\\": "src/"
+            "Ksfraser\\": "src/Ksfraser/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ksfraser\\HRM\\Tests\\": "tests/"
+            "Ksfraser\\Tests\\": "tests/"
         }
     },
     "config": {
@@ -28,7 +28,13 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": [
-        {"type": "path", "url": "../Database"},
-        {"type": "path", "url": "../ksf_ModulesDAO"}
+        {
+            "type": "path",
+            "url": "../Database"
+        },
+        {
+            "type": "path",
+            "url": "../ksf_ModulesDAO"
+        }
     ]
 }

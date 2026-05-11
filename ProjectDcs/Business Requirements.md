@@ -48,6 +48,26 @@ ksf_HRM (Human Resource Management) provides employee records management extensi
 - Time tracking (ksf_Timesheets)
 - Leave management (ksf_Leave)
 
+## Integration Dependencies
+
+### Provided To
+| Module | Data Provided |
+|--------|---------------|
+| ksf_Leave | Employee records, leave entitlements |
+| ksf_Timesheets | Employee rates, project assignments |
+| ksf_Performance | Employee records, goals |
+| ksf_Calendar | Employee events, training |
+| ksf_OrgChart | Reporting structure |
+| ksf_Training | Employee training records |
+
+### Consumed From
+| Module | Data Consumed |
+|--------|---------------|
+| ksf_Workflow | Leave approval, expense approval |
+| ksf_Calendar | Training events, reviews |
+| ksf_ProjectManagement | Project assignments |
+| ksf_Payroll | Compensation export |
+
 ## Success Metrics
 - Single employee record that can serve as contact
 - Bank/tax info accessible for payroll export
