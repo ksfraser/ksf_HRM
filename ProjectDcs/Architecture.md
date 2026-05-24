@@ -99,3 +99,57 @@ pages/
 - ksfraser/Database
 - ksfraser/ksf_ModulesDAO
 - ksf_Contacts (future - contact as employee)
+
+## RBAC Integration
+
+### Module Registration
+
+ksf_HRM registers with ksfraser/rbac:
+- record_types: 'employee'
+- projections: 'public' (name, email, phone, department, job_title), 'full' (all fields including salary, bank info, tax info)
+- allow_invite: false
+- children: certification, emergency_contact, bank_account (child of employee)
+
+### Entity Projections
+
+| Entity | PUBLIC Fields | FULL Fields |
+|--------|---------------|-------------|
+| Employee | name, email, phone, department, job_title, hire_date, status | + salary, manager_id, team_id, termination_date |
+| BankAccount | - | All fields (bank_name, account_number, etc.) |
+| EmergencyContact | name, relationship, phone | All fields |
+| Certification | name, issue_date, expiry_date | All fields including document_path |
+
+### Access Model
+
+- **HR Manager**: Full access to all employees, compensation, banking — requires PROJECTION_FULL grant
+- **Department Manager**: View employees in their department (PROJECTION_PUBLIC), edit non-sensitive fields
+- **Employee**: View own record (PROJECTION_FULL for self via {userId}_individual team), view own certifications
+- **Payroll**: View compensation details (PROJECTION_COMPENSATION) for active employees only
+
+### SQL Enforcement
+
+All employee-fetching queries MUST JOIN against 0_rbac_record_access:
+```sql
+JOIN 0_rbac_record_access ra
+  ON ra.record_id   = e.id
+ AND ra.record_type = 'employee'
+ AND ra.module      = 'hrm'
+ AND ra.inactive    = 0
+ AND ra.can_view    = 1
+JOIN 0_rbac_team_members tm
+ ON tm.team_id  = ra.team_id
+ AND tm.user_id = :currentUserId
+ AND tm.inactive = 0
+```
+
+### Persons Registry Integration
+
+HRM employees link to the FA person registry (0_crm_persons/0_crm_contacts) for cross-module identity resolution (calendar invitees, viewable_by filter). ksf_FA_HRM seeds `0_crm_categories` with type='employee'.
+
+### Soft Delete
+
+Employee records use soft delete: `deleted = 1`, `deleted_by`, `deleted_at`. Hard delete is super-admin only.
+
+### Audit
+
+A permission grant on an employee record is written to the RBAC audit log. Sensitive operations (salary change, termination) should additionally emit PSR-14 events.

@@ -165,7 +165,49 @@ ksf_HRM provides employee record management extending contact capabilities with 
 | ksfraser/exceptions | ^1.3 | Exception hierarchy (when available) |
 | psr/event-dispatcher | ^2.0 | PSR-14 events |
 
+## 6. RBAC Security Requirements
+
+### FR-HRM-007: RBAC Integration
+**Requirement**: All employee record queries must be filtered through 0_rbac_record_access JOIN.
+
+**Features**:
+- Every employee-fetching query includes the RBAC standard JOIN pattern
+- Default deny — no JOIN row means no access
+- Team-based grants replace old role-based CRM_HRM_VIEW permissions
+
+### FR-HRM-008: DTO Projections
+**Requirement**: Employee entity must define PUBLIC and FULL projections.
+
+**Features**:
+- PUBLIC: name, email, phone, department, job_title, status
+- FULL: all fields including salary, bank accounts, tax info, emergency contacts
+- Projections enforced at the data access layer
+
+### FR-HRM-009: Soft Delete
+**Requirement**: Employee records use soft delete pattern.
+
+**Features**:
+- Termination sets deleted=1, deleted_at with reason
+- Only super-admin can hard delete
+- Deleted records excluded from standard queries
+
+### FR-HRM-010: Persons Registry
+**Requirement**: Employees must have corresponding crm_persons entries.
+
+**Features**:
+- ksf_FA_HRM seeds 0_crm_categories with type='employee' on install
+- Employee creation optionally creates crm_contacts entry
+- Enables calendar invitee resolution via person-registry JOIN
+
+### FR-HRM-011: Audit Events
+**Requirement**: Permission changes and sensitive employee operations are audited.
+
+**Features**:
+- RBAC grant/revoke written to audit log
+- Salary changes emit PSR-14 event + audit log
+- Termination/rehire logged
+
 ---
 
-*Document Version: 1.1.0*
-*Last Updated: 2026-05-11*
+*Document Version: 1.2.0*
+*Last Updated: 2026-05-24*
