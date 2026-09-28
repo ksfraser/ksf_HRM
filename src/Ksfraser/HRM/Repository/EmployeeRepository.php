@@ -9,7 +9,8 @@ use Ksfraser\Database\DbManager;
 
 class EmployeeRepository
 {
-    private string $table = 'ksf_hrm_employees';
+    /** @var string */
+    private $table = 'ksf_hrm_employees';
 
     public function findById(int $id): ?Employee
     {
@@ -184,6 +185,9 @@ class EmployeeRepository
 
     private function extractParams(Employee $employee): array
     {
+        $hireDate        = $employee->getHireDate();
+        $terminationDate = $employee->getTerminationDate();
+
         return [
             'employee_number' => $employee->getEmployeeNumber(),
             'first_name' => $employee->getFirstName(),
@@ -193,8 +197,8 @@ class EmployeeRepository
             'department' => $employee->getDepartment(),
             'job_title' => $employee->getJobTitle(),
             'status' => $employee->getStatus(),
-            'hire_date' => $employee->getHireDate()?->format('Y-m-d'),
-            'termination_date' => $employee->getTerminationDate()?->format('Y-m-d'),
+            'hire_date' => $hireDate === null ? null : $hireDate->format('Y-m-d'),
+            'termination_date' => $terminationDate === null ? null : $terminationDate->format('Y-m-d'),
             'manager_id' => $employee->getManagerId(),
             'career_manager_id' => $employee->getCareerManagerId(),
             'operations_manager_id' => $employee->getOperationsManagerId(),

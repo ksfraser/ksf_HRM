@@ -13,15 +13,24 @@ class EmergencyContact
     public const RELATIONSHIP_FRIEND = 'Friend';
     public const RELATIONSHIP_OTHER = 'Other';
 
-    private ?int $id = null;
-    private int $employeeId = 0;
-    private string $name = '';
-    private string $relationship = '';
-    private ?string $phone = null;
-    private ?string $alternatePhone = null;
-    private ?string $email = null;
-    private string $address = '';
-    private bool $isPrimary = false;
+    /** @var int|null */
+    private $id = null;
+    /** @var int */
+    private $employeeId = 0;
+    /** @var string */
+    private $name = '';
+    /** @var string */
+    private $relationship = '';
+    /** @var string|null */
+    private $phone = null;
+    /** @var string|null */
+    private $alternatePhone = null;
+    /** @var string|null */
+    private $email = null;
+    /** @var string */
+    private $address = '';
+    /** @var bool */
+    private $isPrimary = false;
 
     public function getId(): ?int { return $this->id; }
     public function setId(?int $id): self { $this->id = $id; return $this; }

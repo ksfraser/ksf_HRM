@@ -11,21 +11,36 @@ class Employee
     public const STATUS_TERMINATED = 'Terminated';
     public const STATUS_SUSPENDED = 'Suspended';
 
-    private ?int $id = null;
-    private ?string $employeeNumber = null;
-    private string $firstName = '';
-    private string $lastName = '';
-    private ?string $email = null;
-    private ?string $phone = null;
-    private ?string $department = null;
-    private ?string $jobTitle = null;
-    private ?string $status = self::STATUS_ACTIVE;
-    private ?\DateTime $hireDate = null;
-    private ?\DateTime $terminationDate = null;
-    private ?int $managerId = null;
-    private ?int $careerManagerId = null;
-    private ?int $operationsManagerId = null;
-    private ?int $teamId = null;
+    /** @var int|null */
+    private $id = null;
+    /** @var string|null */
+    private $employeeNumber = null;
+    /** @var string */
+    private $firstName = '';
+    /** @var string */
+    private $lastName = '';
+    /** @var string|null */
+    private $email = null;
+    /** @var string|null */
+    private $phone = null;
+    /** @var string|null */
+    private $department = null;
+    /** @var string|null */
+    private $jobTitle = null;
+    /** @var string|null */
+    private $status = self::STATUS_ACTIVE;
+    /** @var \DateTime|null */
+    private $hireDate = null;
+    /** @var \DateTime|null */
+    private $terminationDate = null;
+    /** @var int|null */
+    private $managerId = null;
+    /** @var int|null */
+    private $careerManagerId = null;
+    /** @var int|null */
+    private $operationsManagerId = null;
+    /** @var int|null */
+    private $teamId = null;
 
     public function getId(): ?int
     {

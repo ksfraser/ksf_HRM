@@ -10,21 +10,36 @@ class EmployeeCompensation
     public const TYPE_HOURLY = 'Hourly';
     public const TYPE_COMMISSION = 'Commission';
 
-    private ?int $id = null;
-    private int $employeeId = 0;
-    private ?int $gradeId = null;
-    private ?float $percentOfGrade = null;
-    private ?float $annualSalary = null;
-    private ?float $hourlyRate = null;
-    private string $employeeType = self::TYPE_SALARY;
-    private ?string $effectiveDate = null;
-    private ?string $endDate = null;
-    private bool $otEligible = false;
-    private float $otMultiplier = 1.5;
-    private string $glCodeSalary = 'G01';
-    private string $glCodeOvertime = 'O01';
-    private ?int $benefitsPackageId = null;
-    private ?float $bonusTarget = null;
+    /** @var int|null */
+    private $id = null;
+    /** @var int */
+    private $employeeId = 0;
+    /** @var int|null */
+    private $gradeId = null;
+    /** @var float|null */
+    private $percentOfGrade = null;
+    /** @var float|null */
+    private $annualSalary = null;
+    /** @var float|null */
+    private $hourlyRate = null;
+    /** @var string */
+    private $employeeType = self::TYPE_SALARY;
+    /** @var string|null */
+    private $effectiveDate = null;
+    /** @var string|null */
+    private $endDate = null;
+    /** @var bool */
+    private $otEligible = false;
+    /** @var float */
+    private $otMultiplier = 1.5;
+    /** @var string */
+    private $glCodeSalary = 'G01';
+    /** @var string */
+    private $glCodeOvertime = 'O01';
+    /** @var int|null */
+    private $benefitsPackageId = null;
+    /** @var float|null */
+    private $bonusTarget = null;
 
     public function getId(): ?int
     {

@@ -9,7 +9,8 @@ use Ksfraser\HRM\Entity\Employee;
 
 class EmployeeTest extends TestCase
 {
-    private Employee $employee;
+    /** @var Employee */
+    private $employee;
 
     protected function setUp(): void
     {

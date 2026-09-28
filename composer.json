@@ -4,7 +4,7 @@
     "type": "library",
     "license": "GPL-3.0",
     "require": {
-        "php": "^8.1",
+        "php": ">=7.3",
         "ksfraser/database": "*",
         "ksfraser/ksf-modules-dao": "*"
     },
@@ -36,5 +36,8 @@
             "type": "path",
             "url": "../ksf_ModulesDAO"
         }
-    ]
+    ],
+    "scripts": {
+        "lint:php73": "tools/lint-php73.sh"
+    }
 }

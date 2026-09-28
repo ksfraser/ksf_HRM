@@ -11,17 +11,28 @@ class Dependent
     public const RELATIONSHIP_PARENT = 'Parent';
     public const RELATIONSHIP_OTHER = 'Other';
 
-    private ?int $id = null;
-    private int $employeeId = 0;
-    private string $firstName = '';
-    private string $lastName = '';
-    private string $relationship = '';
-    private ?string $dateOfBirth = null;
-    private ?string $sin = null;
-    private bool $taxCreditEligible = true;
-    private bool $insuranceEligible = false;
-    private ?string $effectiveDate = null;
-    private ?string $endDate = null;
+    /** @var int|null */
+    private $id = null;
+    /** @var int */
+    private $employeeId = 0;
+    /** @var string */
+    private $firstName = '';
+    /** @var string */
+    private $lastName = '';
+    /** @var string */
+    private $relationship = '';
+    /** @var string|null */
+    private $dateOfBirth = null;
+    /** @var string|null */
+    private $sin = null;
+    /** @var bool */
+    private $taxCreditEligible = true;
+    /** @var bool */
+    private $insuranceEligible = false;
+    /** @var string|null */
+    private $effectiveDate = null;
+    /** @var string|null */
+    private $endDate = null;
 
     public function getId(): ?int { return $this->id; }
     public function setId(?int $id): self { $this->id = $id; return $this; }

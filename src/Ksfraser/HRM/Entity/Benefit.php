@@ -21,22 +21,38 @@ class Benefit
     public const CALC_PERIOD_WEEKLY = 'Weekly';
     public const CALC_PERIOD_ANNUAL = 'Annual';
 
-    private ?int $id = null;
-    private string $name = '';
-    private string $code = '';
-    private string $type = self::TYPE_OTHER;
-    private float $employerRate = 0.0;
-    private float $employeeRate = 0.0;
-    private ?float $fixedAmount = null;
-    private string $calculationPeriod = self::CALC_PERIOD_MONTHLY;
-    private bool $isPercentageBased = true;
-    private string $glCodeExpense = '';
-    private string $glCodeLiability = '';
-    private ?string $provider = null;
-    private string $description = '';
-    private bool $active = true;
-    private bool $isMandatory = false;
-    private bool $isTaxDeductible = false;
+    /** @var int|null */
+    private $id = null;
+    /** @var string */
+    private $name = '';
+    /** @var string */
+    private $code = '';
+    /** @var string */
+    private $type = self::TYPE_OTHER;
+    /** @var float */
+    private $employerRate = 0.0;
+    /** @var float */
+    private $employeeRate = 0.0;
+    /** @var float|null */
+    private $fixedAmount = null;
+    /** @var string */
+    private $calculationPeriod = self::CALC_PERIOD_MONTHLY;
+    /** @var bool */
+    private $isPercentageBased = true;
+    /** @var string */
+    private $glCodeExpense = '';
+    /** @var string */
+    private $glCodeLiability = '';
+    /** @var string|null */
+    private $provider = null;
+    /** @var string */
+    private $description = '';
+    /** @var bool */
+    private $active = true;
+    /** @var bool */
+    private $isMandatory = false;
+    /** @var bool */
+    private $isTaxDeductible = false;
 
     public function getId(): ?int
     {

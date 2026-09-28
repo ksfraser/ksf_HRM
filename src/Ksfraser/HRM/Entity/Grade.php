@@ -6,16 +6,26 @@ namespace Ksfraser\HRM\Entity;
 
 class Grade
 {
-    private ?int $id = null;
-    private string $code = '';
-    private string $name = '';
-    private float $minSalary = 0.0;
-    private float $maxSalary = 0.0;
-    private ?float $minHourly = null;
-    private ?float $maxHourly = null;
-    private ?string $description = null;
-    private bool $active = true;
-    private ?string $level = null;
+    /** @var int|null */
+    private $id = null;
+    /** @var string */
+    private $code = '';
+    /** @var string */
+    private $name = '';
+    /** @var float */
+    private $minSalary = 0.0;
+    /** @var float */
+    private $maxSalary = 0.0;
+    /** @var float|null */
+    private $minHourly = null;
+    /** @var float|null */
+    private $maxHourly = null;
+    /** @var string|null */
+    private $description = null;
+    /** @var bool */
+    private $active = true;
+    /** @var string|null */
+    private $level = null;
 
     public function getId(): ?int
     {

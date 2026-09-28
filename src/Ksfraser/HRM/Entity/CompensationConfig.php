@@ -6,17 +6,28 @@ namespace Ksfraser\HRM\Entity;
 
 class CompensationConfig
 {
-    private int $yearHours = 2080;
-    private float $monthHours = 173.33;
-    private int $weekHours = 40;
-    private int $dayHours = 8;
-    private bool $otEnabled = true;
-    private string $otRule = 'daily';
-    private float $otMultiplier = 1.5;
-    private bool $otBankEnabled = false;
-    private float $otBankMultiplier = 1.0;
-    private string $workWeekStart = 'Monday';
-    private string $workWeekEnd = 'Friday';
+    /** @var int */
+    private $yearHours = 2080;
+    /** @var float */
+    private $monthHours = 173.33;
+    /** @var int */
+    private $weekHours = 40;
+    /** @var int */
+    private $dayHours = 8;
+    /** @var bool */
+    private $otEnabled = true;
+    /** @var string */
+    private $otRule = 'daily';
+    /** @var float */
+    private $otMultiplier = 1.5;
+    /** @var bool */
+    private $otBankEnabled = false;
+    /** @var float */
+    private $otBankMultiplier = 1.0;
+    /** @var string */
+    private $workWeekStart = 'Monday';
+    /** @var string */
+    private $workWeekEnd = 'Friday';
 
     public function getYearHours(): int
     {
@@ -45,7 +56,10 @@ class CompensationConfig
         return $this->weekHours;
     }
 
-public function setWeekHours(int|float $weekHours): self
+    /**
+     * @param int|float $weekHours
+     */
+    public function setWeekHours($weekHours): self
     {
         $this->weekHours = (int)$weekHours;
         $this->yearHours = $this->weekHours * 52;
@@ -53,7 +67,10 @@ public function setWeekHours(int|float $weekHours): self
         return $this;
     }
 
-    public function setDayHours(int|float $dayHours): self
+    /**
+     * @param int|float $dayHours
+     */
+    public function setDayHours($dayHours): self
     {
         $this->dayHours = (int)$dayHours;
         return $this;

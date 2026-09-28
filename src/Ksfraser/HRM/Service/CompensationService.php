@@ -10,7 +10,8 @@ use Ksfraser\HRM\Entity\CompensationConfig;
 
 class CompensationService
 {
-    private CompensationConfig $config;
+    /** @var CompensationConfig */
+    private $config;
 
     public function __construct(?CompensationConfig $config = null)
     {
